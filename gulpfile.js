@@ -28,6 +28,16 @@ gulp.task('views', function(){
     .pipe(gulp.dest('public/views'));
 });
 
+gulp.task('bootstrap-js', function(){
+  return gulp.src('app/assets/libs/bootstrap-sass/assets/javascripts/bootstrap.min.js')
+    .pipe(gulp.dest('public/assets/libs'));
+});
+
+gulp.task('jquery', function(){
+  return gulp.src('app/assets/libs/jquery/dist/jquery.min.js')
+    .pipe(gulp.dest('public/assets/libs'));
+});
+
 // combine and minify js files
 gulp.task('scripts', function() {
   return gulp.src(['./app/app.js', './app/components/**/*.js', './app/directives/**/*.js'])
@@ -71,4 +81,4 @@ gulp.task('watch', ['public'], function() {
 
 gulp.task('default', ['connect', 'watch', 'jshint']);
 
-gulp.task('public', ['html', 'views', 'scripts', 'jshint', 'styles', 'copyFonts', 'copyDirectiveHtml']);
+gulp.task('public', ['html', 'views', 'scripts', 'jshint', 'styles', 'copyFonts', 'copyDirectiveHtml', 'bootstrap-js', 'jquery']);
