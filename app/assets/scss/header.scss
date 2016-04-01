@@ -1,0 +1,49 @@
+header {
+	
+	.logo-container {
+		text-align: center;
+		margin-top: 3em;
+		padding: 2em;
+	}
+
+	.title {
+		position: absolute;
+		color: black;
+		font-family: 'fat-open';
+		font-size: 8em;
+	}
+
+	.filled-title {
+		font-family: 'fat-filled';
+		font-size: 8em;
+		padding-right: 30px;
+		padding-top: 10px;
+		-webkit-border-radius: 30px;
+		border-radius: 30px;
+		
+		// Permalink - use to edit and share this gradient:
+		// http://colorzilla.com/gradient-editor/#ff3232+0,ff2828+51,000000+51,000000+51,000000+58,ffffff+58,ffffff+100
+		background: rgb(255,50,50); /* Old browsers */
+		background: -moz-linear-gradient(top, rgba(255,50,50,1) 0%, rgba(255,40,40,1) 51%, rgba(0,0,0,1) 51%, rgba(0,0,0,1) 51%, rgba(0,0,0,1) 58%, rgba(255,255,255,1) 58%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
+		background: -webkit-linear-gradient(top, rgba(255,50,50,1) 0%,rgba(255,40,40,1) 51%,rgba(0,0,0,1) 51%,rgba(0,0,0,1) 51%,rgba(0,0,0,1) 58%,rgba(255,255,255,1) 58%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
+		background: linear-gradient(to bottom, rgba(255,50,50,1) 0%,rgba(255,40,40,1) 51%,rgba(0,0,0,1) 51%,rgba(0,0,0,1) 51%,rgba(0,0,0,1) 58%,rgba(255,255,255,1) 58%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff3232', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+
+		-webkit-background-clip: text;
+  		-webkit-text-fill-color: transparent;
+	}
+	
+	.subtitle {
+		font-family: 'coffee';
+		font-size: 2em;
+		color: black;
+		margin-top: -1em;
+		margin-left: 12em;
+	}
+
+	@-moz-document url-prefix() { 
+  		.subtitle {
+     		margin-top: 0;
+  		}
+	}
+}

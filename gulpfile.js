@@ -73,7 +73,7 @@ gulp.task('scripts', function() {
 
 // Styles public task, concatenates all the files
 gulp.task('styles', function() {
-  return gulp.src('./app/assets/scss/*.scss')
+  return gulp.src('./app/assets/scss/main.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(cleanCSS({compatibility: 'ie8'}))
     .pipe(concat('styles.css'))

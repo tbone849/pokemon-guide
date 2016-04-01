@@ -1,0 +1,23 @@
+{
+  "name": "pokemon-guide",
+  "description": "",
+  "main": "index.html",
+  "authors": [
+    "Tim Sarvey"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/tbone849/pokemon-guide",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/assets/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "^3.3.6",
+    "angular-velocity": "^0.3.2"
+  }
+}
