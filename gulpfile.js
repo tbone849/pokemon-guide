@@ -38,6 +38,31 @@ gulp.task('jquery', function(){
     .pipe(gulp.dest('public/assets/libs'));
 });
 
+gulp.task('angular', function(){
+  return gulp.src('app/assets/libs/angular/angular.min.js')
+    .pipe(gulp.dest('public/assets/libs'));
+});
+
+gulp.task('angularAnimate', function(){
+  return gulp.src('app/assets/libs/angular-animate/angular-animate.min.js')
+    .pipe(gulp.dest('public/assets/libs'));
+});
+
+gulp.task('angularVelocity', function(){
+  return gulp.src('app/assets/libs/angular-velocity/angular-velocity.min.js')
+    .pipe(gulp.dest('public/assets/libs'));
+});
+
+gulp.task('velocity', function(){
+  return gulp.src('app/assets/libs/velocity/velocity.min.js')
+    .pipe(gulp.dest('public/assets/libs'));
+});
+
+gulp.task('velocityUI', function(){
+  return gulp.src('app/assets/libs/velocity/velocity.ui.min.js')
+    .pipe(gulp.dest('public/assets/libs'));
+});
+
 // combine and minify js files
 gulp.task('scripts', function() {
   return gulp.src(['./app/app.js', './app/components/**/*.js', './app/directives/**/*.js'])
@@ -81,4 +106,4 @@ gulp.task('watch', ['public'], function() {
 
 gulp.task('default', ['connect', 'watch', 'jshint']);
 
-gulp.task('public', ['html', 'views', 'scripts', 'jshint', 'styles', 'copyFonts', 'copyDirectiveHtml', 'bootstrap-js', 'jquery']);
+gulp.task('public', ['html', 'views', 'scripts', 'jshint', 'styles', 'copyFonts', 'copyDirectiveHtml', 'bootstrap-js', 'jquery', 'angular', 'angularAnimate', 'angularVelocity', 'velocity', 'velocityUI']);
