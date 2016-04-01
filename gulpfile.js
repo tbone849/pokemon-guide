@@ -65,7 +65,7 @@ gulp.task('velocityUI', function(){
 
 // combine and minify js files
 gulp.task('scripts', function() {
-  return gulp.src(['./app/app.js', './app/components/**/*.js', './app/directives/**/*.js'])
+  return gulp.src(['./app/app.js', './app/components/**/*.js', './app/directives/**/*.js', './app/factories/**/*.js'])
     .pipe(concat('app.js'))
     .pipe(uglify())
     .pipe(gulp.dest('public'));
@@ -99,7 +99,7 @@ gulp.task('jshint', function() {
 
 gulp.task('watch', ['public'], function() {
   gulp.watch('./app/**/*.html', ['public'] );
-  gulp.watch(['./app/app.js', './app/components/**/*.js', './app/directives/**/*.js'], ['public']);
+  gulp.watch(['./app/app.js', './app/components/**/*.js', './app/directives/**/*.js', './app/factories/**/*.js'], ['public']);
   gulp.watch('./app/assets/scss/*.scss', ['public']);
   gulp.watch('./public/assets/img/**/*', ['public']);
 });
