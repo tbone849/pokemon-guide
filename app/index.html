@@ -19,12 +19,13 @@
     <script src="assets/libs/bootstrap.min.js"></script>
     <script src="assets/libs/angular.min.js"></script>
     <script src="assets/libs/angular-animate.min.js"></script>
+    <script src="assets/libs/angular-route.min.js"></script>
     <script src="assets/libs/velocity.min.js"></script>
     <script src="assets/libs/velocity.ui.min.js"></script>
     <script src="assets/libs/angular-velocity.min.js"></script>
     <script src="app.js"></script>
   </head>
-  <body ng-controller='test'>
+  <body>
     <header>
       <div class='logo-container'>
         <span class='title'>Pok&#233;mon</span>
@@ -32,6 +33,10 @@
         <div class='subtitle'>A visual guide</div>
       </div>
     </header>
+    <section class='view-container'>
+      <div ng-view>
+      </div>
+    </section>
     <footer>
       <div class='copyright'>
         Designed and developed by <a href="https://sarvey-webdev.com">Tim Sarvey</a> &copy;<script>document.write(new Date().getFullYear());</script>

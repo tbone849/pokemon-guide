@@ -63,6 +63,11 @@ gulp.task('velocityUI', function(){
     .pipe(gulp.dest('public/assets/libs'));
 });
 
+gulp.task('angularRoute', function(){
+  return gulp.src('app/assets/libs/angular-route/angular-route.min.js')
+    .pipe(gulp.dest('public/assets/libs'));
+});
+
 // combine and minify js files
 gulp.task('scripts', function() {
   return gulp.src(['./app/app.js', './app/components/**/*.js', './app/directives/**/*.js', './app/factories/**/*.js'])
@@ -106,4 +111,4 @@ gulp.task('watch', ['public'], function() {
 
 gulp.task('default', ['connect', 'watch', 'jshint']);
 
-gulp.task('public', ['html', 'views', 'scripts', 'jshint', 'styles', 'copyFonts', 'copyDirectiveHtml', 'bootstrap-js', 'jquery', 'angular', 'angularAnimate', 'angularVelocity', 'velocity', 'velocityUI']);
+gulp.task('public', ['html', 'views', 'scripts', 'jshint', 'styles', 'copyFonts', 'copyDirectiveHtml', 'bootstrap-js', 'jquery', 'angular', 'angularAnimate', 'angularVelocity', 'velocity', 'velocityUI', 'angularRoute']);

@@ -1,0 +1,25 @@
+.browse-or-search {
+	width: 350px;
+	height: 350px;
+}
+
+.browse-container {
+	text-align: center;
+}
+
+#browse, #search {
+	display: inline-block;
+	-webkit-border-radius: 20px;
+	border-radius: 20px;
+}
+
+#browse {
+	background-image: url('../img/browse.jpg');
+	margin-right: 3em;
+}
+
+#search {
+	background-image: url('../img/search.jpg');
+}
+
+

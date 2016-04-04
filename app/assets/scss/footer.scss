@@ -17,6 +17,7 @@ footer {
     color: #ff9999;
     text-decoration: none;
   }
+
 }
 
 .copyright {
@@ -26,4 +27,7 @@ footer {
 
 .follow {
   margin-left: 2em;
+  a {
+    margin-left: .75em;
+  }
 }
