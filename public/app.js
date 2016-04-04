@@ -1,1 +1,1 @@
-angular.module("pokemon",["ngAnimate","angular-velocity"]),angular.module("pokemon").controller("test",["$scope",function(e){e.name="Tim is the coolest guy ever!",e.animate=!0}]);
+angular.module("pokemon",["ngAnimate","angular-velocity"]),angular.module("pokemon").controller("test",["$scope",function(e){e.name="Tim is the coolest guy ever!",e.animate=!0,e.toggle=function(){e.animate=!e.animate}}]);
