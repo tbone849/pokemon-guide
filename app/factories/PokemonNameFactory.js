@@ -1,9 +1,9 @@
 angular.module('pokemon')
 	.factory('PokemonNameFactory', ['$http', 'lodash', function($http, lodash){
 
-		var capitalizeStrings = function(strings){
-			var results = strings.map(function(string){
-				return lodash.capitalize(string.name);
+		var getNames = function(creatures){
+			var results = creatures.map(function(pokemon){
+				return pokemon.name;
 			});
 
 			return results;
@@ -16,7 +16,7 @@ angular.module('pokemon')
 						var count = res.data.count;
 						$http.get('//pokeapi.co/api/v2/pokemon/?limit=' + count)
 							.then(function(res){
-								callback(null, capitalizeStrings(res.data.results));
+								callback(null, getNames(res.data.results));
 							})
 							.then(function(err){
 								callback(err);

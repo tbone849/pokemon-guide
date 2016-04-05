@@ -75,7 +75,7 @@ gulp.task('lodash', function(){
 
 // combine and minify js files
 gulp.task('scripts', function() {
-  return gulp.src(['./app/app.js', './app/controllers/*.js', './app/directives/**/*.js', './app/factories/**/*.js'])
+  return gulp.src(['./app/app.js', './app/controllers/*.js', './app/directives/**/*.js', './app/factories/**/*.js', './app/filters/*.js'])
     .pipe(concat('app.js'))
     .pipe(uglify())
     .pipe(gulp.dest('public'));

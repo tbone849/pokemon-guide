@@ -2,9 +2,27 @@
 	width: 70%;
 	margin: 0 auto;
 	padding: 0 2em 2em;
+	min-height: 500px;
 }
 
 .name {
 	margin-right: 1em;
 	display: inline-block;
+	background-color: #e6e6e6;
+	padding: 8px;
+	margin-bottom: .5em;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.search {
+	margin-bottom: 2em;
+}
+
+.loading {
+	font-size: 1.5em;
+}
+
+.spinner {
+	color: #00cc66;
 }

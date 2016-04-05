@@ -12,3 +12,12 @@
 	font-family: 'coffee';
 	src: url('../fonts/Coffee At Midnight Demo.ttf');
 }
+
+@font-face {
+	font-family: 'joy';
+	src: url('../fonts/Joy_For_Fun.otf');
+}
+
+h1 {
+	font-family: 'joy';
+}
