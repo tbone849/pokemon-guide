@@ -68,9 +68,14 @@ gulp.task('angularRoute', function(){
     .pipe(gulp.dest('public/assets/libs'));
 });
 
+gulp.task('lodash', function(){
+  return gulp.src('app/assets/libs/ng-lodash/build/ng-lodash.min.js')
+    .pipe(gulp.dest('public/assets/libs'));
+});
+
 // combine and minify js files
 gulp.task('scripts', function() {
-  return gulp.src(['./app/app.js', './app/components/**/*.js', './app/directives/**/*.js', './app/factories/**/*.js'])
+  return gulp.src(['./app/app.js', './app/controllers/*.js', './app/directives/**/*.js', './app/factories/**/*.js'])
     .pipe(concat('app.js'))
     .pipe(uglify())
     .pipe(gulp.dest('public'));
@@ -104,11 +109,11 @@ gulp.task('jshint', function() {
 
 gulp.task('watch', ['public'], function() {
   gulp.watch('./app/**/*.html', ['public'] );
-  gulp.watch(['./app/app.js', './app/components/**/*.js', './app/directives/**/*.js', './app/factories/**/*.js'], ['public']);
+  gulp.watch(['./app/app.js', './app/controllers/**/*.js', './app/directives/**/*.js', './app/factories/**/*.js'], ['public']);
   gulp.watch('./app/assets/scss/*.scss', ['public']);
   gulp.watch('./public/assets/img/**/*', ['public']);
 });
 
 gulp.task('default', ['connect', 'watch', 'jshint']);
 
-gulp.task('public', ['html', 'views', 'scripts', 'jshint', 'styles', 'copyFonts', 'copyDirectiveHtml', 'bootstrap-js', 'jquery', 'angular', 'angularAnimate', 'angularVelocity', 'velocity', 'velocityUI', 'angularRoute']);
+gulp.task('public', ['html', 'views', 'scripts', 'jshint', 'styles', 'copyFonts', 'copyDirectiveHtml', 'bootstrap-js', 'jquery', 'angular', 'angularAnimate', 'angularVelocity', 'velocity', 'velocityUI', 'angularRoute', 'lodash']);

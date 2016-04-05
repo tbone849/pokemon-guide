@@ -1,4 +1,4 @@
-angular.module('pokemon', ['ngAnimate', 'angular-velocity', 'ngRoute'])
+angular.module('pokemon', ['ngAnimate', 'angular-velocity', 'ngRoute', 'ngLodash'])
 	.config(['$routeProvider', function($routeProvider){
 		$routeProvider.
 			when('/', {
@@ -10,7 +10,7 @@ angular.module('pokemon', ['ngAnimate', 'angular-velocity', 'ngRoute'])
 			}).
 			when('/search', {
 				templateUrl: 'views/search.html',
-				controller: 'SearchCtrl'
+				controller: 'PokemonNameController'
 			}).
 			when('/pokemon/:name', {
 				templateUrl: 'views/pokemon-detail.html',
