@@ -46,4 +46,39 @@ header {
      		margin-top: 0;
   		}
 	}
+
+	@media (max-width: 745px){
+		.title, .filled-title{
+			font-size: 5em;
+		}
+		.subtitle {
+			margin-top: -.5em;
+			margin-left: 4em;
+			text-align: center;
+		}
+
+		.logo-container {
+			margin-top: 1em;
+		}
+
+		@-moz-document url-prefix() { 
+  			.subtitle {
+     			margin-top: 0em;
+  			}
+		}
+	}
+
+	@media (max-width: 465px){
+		.title, .filled-title {
+			font-size: 3em;
+		}
+
+		.filled-title {
+			padding-right: 10px;
+		}
+
+		.subtitle {
+			font-size: 1em;
+		}
+	}
 }

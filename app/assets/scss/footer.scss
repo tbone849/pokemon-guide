@@ -31,3 +31,18 @@ footer {
     margin-left: .75em;
   }
 }
+
+@media (max-width: 830px){
+    .copyright {
+      float: none;
+      margin-right: 0;
+    }
+
+    footer {
+      text-align: center
+    }
+
+    .follow {
+      margin-left: 0;
+    }
+}
