@@ -7,9 +7,10 @@ angular.module('pokemon')
 					return console.log(err);
 				}
 
-				// if(res !== undefined){
-				// 	$scope.foundDetails = true;
-				// 	$scope.pokemon = res;
-				// }
-			})
+				if(res !== undefined){
+					$scope.foundDetails = true;
+					$scope.pokemon = res;
+					console.log($scope.pokemon);
+				}
+			});
 	}]);
