@@ -14,7 +14,7 @@ angular.module('pokemon')
 				$http.get('//pokeapi.co/api/v2/pokemon/')
 					.then(function(res){
 						var count = res.data.count;
-						$http.get('//pokeapi.co/api/v2/pokemon/?limit=' + count)
+						$http.get('//pokeapi.co/api/v2/pokemon/?limit=' + count, {cache:true})
 							.then(function(res){
 								callback(null, getNames(res.data.results));
 							})

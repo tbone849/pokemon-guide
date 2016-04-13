@@ -14,7 +14,7 @@ angular.module('pokemon', ['ngAnimate', 'angular-velocity', 'ngRoute', 'ngLodash
 			}).
 			when('/pokemon/:name', {
 				templateUrl: 'views/pokemon-detail.html',
-				controller: 'PokemonDetailCtrl'
+				controller: 'PokemonDetailController'
 			}).
 			otherwise({
 				redirectTo: '/'
