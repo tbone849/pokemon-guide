@@ -8,7 +8,7 @@ angular.module('pokemon')
 				type: parseTypes(traits.types),
 				stats: traits.stats,
 				abilities: parseAbilities(traits.abilities),
-				id: traits.id
+				species: traits.species
 			};
 			return pokemon;
 		};
