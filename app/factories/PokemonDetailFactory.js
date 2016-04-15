@@ -8,7 +8,11 @@ angular.module('pokemon')
 				type: parseTypes(traits.types),
 				stats: traits.stats,
 				abilities: parseAbilities(traits.abilities),
-				species: traits.species
+				species: traits.species,
+				sprites: {
+					male: traits.sprites.front_default,
+					female: traits.sprites.front_female
+				}
 			};
 			return pokemon;
 		};
