@@ -1,5 +1,5 @@
 angular.module('pokemon', ['ngAnimate', 'angular-velocity', 'ngRoute', 'ngLodash'])
-	.config(['$routeProvider', function($routeProvider){
+	.config(['$routeProvider', '$sceDelegateProvider', function($routeProvider, $sceDelegateProvider){
 		$routeProvider.
 			when('/', {
 				templateUrl: 'views/home.html'
@@ -19,4 +19,11 @@ angular.module('pokemon', ['ngAnimate', 'angular-velocity', 'ngRoute', 'ngLodash
 			otherwise({
 				redirectTo: '/'
 			});
+
+		$sceDelegateProvider.resourceUrlWhitelist([
+    		// Allow same origin resource loads.
+    		'self',
+    		// Allow loading from our assets domain.  Notice the difference between * and **.
+    		'http://pokeapi.co/api/v2/**'
+  		]);
 	}]);

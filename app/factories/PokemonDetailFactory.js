@@ -34,7 +34,7 @@ angular.module('pokemon')
 
 		return {
 			getDetails: function(name, callback){
-				$http.get('//pokeapi.co/api/v2/pokemon/' + name, {cache:true})
+				$http.get('//pokeapi.co/api/v2/pokemon/' + name + '/', {cache:true})
 					.then(function(res){
 						// console.log(res);
 						callback(null, parsePersonalTraits(res.data));

@@ -1,3 +1,10 @@
 <div class='details-container panel panel-default'>
 	<h1>{{name | titlecase}}</h1>
+	<div class='evolution-container'>
+		<div ng-if='evolution' class='evolution-origin'>
+			<img ng-src='{{getPokemonImage(evolution.chain.species.name)}}'>
+			<!-- put into directive. right now, this doesn't work -->
+		</div>
+		
+	</div>
 </div>

@@ -1,6 +1,6 @@
 angular.module('pokemon')
 	.controller('PokemonDetailController', ['$scope', 'PokemonDetailFactory', 
-	'PokemonEvolutionFactory', 'PokemonSpeciesFactory', 'EvolutionSpritesFactory', '$routeParams', function($scope, PokemonDetailFactory, PokemonEvolutionFactory, PokemonSpeciesFactory, EvolutionSpritesFactory, $routeParams){
+	'PokemonEvolutionFactory', 'PokemonSpeciesFactory', '$routeParams', '$http', function($scope, PokemonDetailFactory, PokemonEvolutionFactory, PokemonSpeciesFactory, $routeParams, $http){
 
 			$scope.name = $routeParams.name;
 			// get details
@@ -33,27 +33,25 @@ angular.module('pokemon')
 
 							if(res !== undefined){
 								$scope.evolution = res;
-								//console.log($scope.evolution);
+								console.log($scope.evolution);
 							}
-
-							// get evolution sprites
-							EvolutionSpritesFactory.getEvolutionSprites($scope.evolution, function(err, res){
-
-								if(err){
-									return console.log(err);
-								}
-
-								if(res !== undefined){
-									$scope.evolutionSprites = res;
-									console.log($scope.evolutionSprites);
-								}
-								
-							});
 
 						});
 					}
 				});
 
 			});
+
+			// move to directive.
+			$scope.getPokemonImage = function(name){
+
+				return $http.get('//pokeapi.co/api/v2/pokemon/' + name + '/')
+					.then(function(res){
+						return 'http://pokeapi.co/media/sprites/pokemon/' + res.data.id + '.png';
+					})
+					.then(function(err){
+						return 'notfound';
+					});
+			};
 
 	}]);
