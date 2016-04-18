@@ -2,14 +2,11 @@
 	<h1>{{name | titlecase}}</h1>
 	<div class="evolution-container">
 		<div ng-if="evolution" class="evolution-origin">
-			<sprite name="evolution.chain.species.name"></sprite>
-			{{evolution.chain.species.name | titlecase}}
+			<sprite class="yellow" name="evolution.chain.species.name"></sprite>
 			<div ng-repeat="step1 in evolution.chain.evolves_to">
-				<sprite name="step1.species.name"></sprite>
-				{{step1.species.name | titlecase}}
+				<sprite class="orange" name="step1.species.name"></sprite>
 				<div ng-repeat="step2 in step1.evolves_to">
-					<sprite name="step2.species.name"></sprite>
-					{{step2.species.name | titlecase}}
+					<sprite class="purple" name="step2.species.name"></sprite>
 				</div>
 			</div>
 		</div>
