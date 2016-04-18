@@ -2,8 +2,16 @@
 	<h1>{{name | titlecase}}</h1>
 	<div class='evolution-container'>
 		<div ng-if='evolution' class='evolution-origin'>
-			<img ng-src='{{getPokemonImage(evolution.chain.species.name)}}'>
-			<!-- put into directive. right now, this doesn't work -->
+			<sprite name='evolution.chain.species.name'></sprite>
+			{{evolution.chain.species.name | titlecase}}
+			<div ng-repeat='step1 in evolution.chain.evolves_to'>
+				<sprite name='step1.species.name'></sprite>
+				{{step1.species.name | titlecase}}
+				<div ng-repeat='step2 in step1.evolves_to'>
+					<sprite name='step2.species.name'></sprite>
+					{{step2.species.name | titlecase}}
+				</div>
+			</div>
 		</div>
 		
 	</div>
