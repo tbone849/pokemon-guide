@@ -19,7 +19,6 @@ angular.module('pokemon')
 				};
 
 				getSprite(scope.name, function(err, res){
-					console.log(res);
 					if(err){
 						console.log(err);
 					}
@@ -28,6 +27,14 @@ angular.module('pokemon')
 						scope.url = res;
 					}
 				});
+
+				// elem.find('img').bind('load', function(){
+				// 	scope.spriteLoaded = true;
+				// 	console.log("picture loaded");
+				// });
+
+
+			// MAKE FACTORIES RETURN PROMISES. THEN DO PROMISE CHAINING TO HANDLE CALLS THAT RELY ON FACTORY RESULTS.
 			}
 		};
 	}]);

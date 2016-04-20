@@ -4,42 +4,25 @@ angular.module('pokemon')
 
 			$scope.name = $routeParams.name;
 
-			// get details
-			PokemonDetailFactory.getDetails($scope.name, function(err, res){
-				if(err){
-					return console.log(err);
-				}
+			// detail, then species (res.species.url), then evolution (res.evolutionChainUrl)
 
-				if(res !== undefined){
+			PokemonDetailFactory.getDetails($scope.name)
+				.then(function(res){
 					$scope.foundDetails = true;
-					$scope.pokemon = res;
-					//console.log($scope.pokemon);
-				}
-
-				// get species
-				PokemonSpeciesFactory.getSpecies($scope.pokemon.species.url, function(err, res){
-					if(err){
-						return console.log(err);
-					}
-
-					if(res !== undefined){
-						$scope.species = res;
-						//console.log($scope.species);
-
-						// get evolution
-						PokemonEvolutionFactory.getEvolutionChain(res.evolutionChainUrl, function(err, res){
-							if(err){
-								return console.log(err);
-							}
-
-							if(res !== undefined){
-								$scope.evolution = res;
-								console.log($scope.evolution);
-							}
-
-						});
-					}
+					$scope.pokemon = PokemonDetailFactory.parsePersonalTraits(res.data);
+					return PokemonSpeciesFactory.getSpecies($scope.pokemon.species.url);
+				}, function(err){
+					console.log('Details failed: ' + err);
+				})
+				.then(function(res){
+					$scope.species = PokemonSpeciesFactory.parseSpecies(res.data);
+					return PokemonEvolutionFactory.getEvolutionChain($scope.species.evolutionChainUrl);
+				}, function(err){
+					console.log('Species failed: ' + err);
+				})
+				.then(function(res){
+					$scope.evolution = res.data;
+				}, function(err){
+					console.log('Evolution failed: ' + err);
 				});
-
-			});
 	}]);

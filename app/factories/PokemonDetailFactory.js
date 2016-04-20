@@ -1,22 +1,6 @@
 angular.module('pokemon')
 	.factory('PokemonDetailFactory', ['$http', function($http){
 
-		var parsePersonalTraits = function(traits){
-			var pokemon = {
-				height: traits.height,
-				weight: traits.weight,
-				type: parseTypes(traits.types),
-				stats: traits.stats,
-				abilities: parseAbilities(traits.abilities),
-				species: traits.species,
-				sprites: {
-					male: traits.sprites.front_default,
-					female: traits.sprites.front_female
-				}
-			};
-			return pokemon;
-		};
-
 		var parseTypes = function(res){
 			var types = res.map(function(value){
 				return value.type.name;
@@ -33,15 +17,24 @@ angular.module('pokemon')
 
 
 		return {
-			getDetails: function(name, callback){
-				$http.get('//pokeapi.co/api/v2/pokemon/' + name + '/', {cache:true})
-					.then(function(res){
-						// console.log(res);
-						callback(null, parsePersonalTraits(res.data));
-					})
-					.then(function(err){
-						callback(err);
-					});
+			getDetails: function(name){
+				return $http.get('//pokeapi.co/api/v2/pokemon/' + name + '/', {cache:true});
+			},
+
+			parsePersonalTraits: function(traits){
+				var pokemon = {
+					height: traits.height,
+					weight: traits.weight,
+					type: parseTypes(traits.types),
+					stats: traits.stats,
+					abilities: parseAbilities(traits.abilities),
+					species: traits.species,
+					sprites: {
+						male: traits.sprites.front_default,
+						female: traits.sprites.front_female
+					}
+				};
+				return pokemon;
 			}
 		};
 	}]);
