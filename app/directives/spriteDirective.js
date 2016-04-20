@@ -4,7 +4,8 @@ angular.module('pokemon')
 			restrict: 'E',
 			scope: {
 				name: '=',
-				loaded: '&'
+				loaded: '&',
+				hide: '&'
 			},
 			template: '<img class="sprite" ng-src="{{url}}" width="96" height="96"><span class="sprite-label">{{name | titlecase}}</span>',
 			link: function(scope, elem, attr){
@@ -13,8 +14,7 @@ angular.module('pokemon')
 					.then(function(res){
 						var url = 'http://pokeapi.co/media/sprites/pokemon/' + res.data.id + '.png';
 						callback(null, url);
-					})
-					.then(function(err){
+					}, function(err){
 						callback(err);
 					});
 				};
@@ -22,10 +22,14 @@ angular.module('pokemon')
 				getSprite(scope.name, function(err, res){
 					if(err){
 						console.log(err);
+						// change this to a local fallback image
+						elem.find('img').attr('src', 'http://s3.amazonaws.com/coolchaser.com/thumb-15816917.jpg');
+						scope.hide();
 					}
 
 					if(res !== undefined){
 						scope.url = res;
+						console.log(res);
 					}
 				});
 

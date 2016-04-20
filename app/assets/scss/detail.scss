@@ -4,3 +4,25 @@
 	padding: 0 2em 2em;
 	min-height: 500px;
 }
+
+.subdetail-container {
+	background-color: #f2f2f2;
+	padding: .25em 2em 2em;
+	margin-bottom: 2em;
+}
+
+.main-sprite {
+	width: 120px;
+	-webkit-border-radius: 50%;
+	background-color: white;
+	border-radius: 50%;
+	border: solid 3px #4d4d4d;	
+}
+
+.ability:after {
+	content: ', ';
+}
+
+.ability:last-child:after {
+	content: none;
+}

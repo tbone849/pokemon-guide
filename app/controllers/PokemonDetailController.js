@@ -20,19 +20,24 @@ angular.module('pokemon')
 
 			$scope.areImagesLoaded = function(){
 				directiveImageLoadedCount++;
-				if(evolutionCount === directiveImageLoadedCount){
+				if(evolutionCount === directiveImageLoadedCount && evolutionCount > 1){
 					$scope.$apply(function(){
 						$scope.imagesLoaded = true;
 					});
-					console.log('images loaded. yay.');
 				}
 
+			};
+
+			$scope.hideEvolution = function(){
+				$scope.hideEvolutionResponse = true;
+				console.log('hide evolution');
 			};
 
 			PokemonDetailFactory.getDetails($scope.name)
 				// get basic pokemon stats
 				.then(function(res){
 					$scope.pokemon = PokemonDetailFactory.parsePersonalTraits(res.data);
+					console.log($scope.pokemon);
 					return PokemonSpeciesFactory.getSpecies($scope.pokemon.species.url);
 				}, function(err){
 					console.log('Details failed: ' + err);

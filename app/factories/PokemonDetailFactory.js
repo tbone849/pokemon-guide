@@ -15,6 +15,18 @@ angular.module('pokemon')
 			return abilities;
 		};
 
+		var parseHeightToFeet = function(height){
+			var inches = Math.round(height / 2.54);
+			var feet = (inches / 12).toFixed(1);
+
+			return feet + ' ft';
+		};
+
+		var parseWeightToLbs = function(weight){
+			var lbs = ((weight/10) * 2.2046).toFixed(2);
+			return lbs + ' lbs';
+		};
+
 
 		return {
 			getDetails: function(name){
@@ -23,8 +35,14 @@ angular.module('pokemon')
 
 			parsePersonalTraits: function(traits){
 				var pokemon = {
-					height: traits.height,
-					weight: traits.weight,
+					height: {
+						ft: parseHeightToFeet(traits.height*10),
+						m: (traits.height / 10).toFixed(2) + ' m'
+					},
+					weight: {
+						lbs: parseWeightToLbs(traits.weight),
+						kg: (traits.weight / 10).toFixed(2) + ' kg'
+					},
 					type: parseTypes(traits.types),
 					stats: traits.stats,
 					abilities: parseAbilities(traits.abilities),
