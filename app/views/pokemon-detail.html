@@ -2,12 +2,15 @@
 	<h1>{{name | titlecase}}</h1>
 	<img ng-src='{{pokemon.sprites.male}}'>
 	<div class='evolution-container'>
-		<div ng-if='evolution' class='evolution-origin'>
-			<sprite class='yellow' name='evolution.chain.species.name'></sprite>
+		<div class='loading' ng-hide='imagesLoaded'>
+			<i class="fa fa-refresh fa-spin spinner"></i> Retrieving Evolution...
+		</div>
+		<div ng-if='evolution' ng-show='imagesLoaded' class='evolution-origin'>
+			<sprite loaded="areImagesLoaded()" class='yellow' name='evolution.chain.species.name'></sprite>
 			<div ng-repeat='step1 in evolution.chain.evolves_to'>
-				<sprite class='orange' name='step1.species.name'></sprite>
+				<sprite loaded="areImagesLoaded()" class='orange' name='step1.species.name'></sprite>
 				<div ng-repeat='step2 in step1.evolves_to'>
-					<sprite class='purple' name='step2.species.name'></sprite>
+					<sprite loaded="areImagesLoaded()" class='purple' name='step2.species.name'></sprite>
 				</div>
 			</div>
 		</div>

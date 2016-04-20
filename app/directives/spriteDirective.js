@@ -3,9 +3,10 @@ angular.module('pokemon')
 		return {
 			restrict: 'E',
 			scope: {
-				name: '='
+				name: '=',
+				loaded: '&'
 			},
-			template: '<img ng-src="{{url}}"><span class="sprite-label">{{name | titlecase}}</span>',
+			template: '<img class="sprite" ng-src="{{url}}" width="96" height="96"><span class="sprite-label">{{name | titlecase}}</span>',
 			link: function(scope, elem, attr){
 				var getSprite = function(name, callback){
 					$http.get('//pokeapi.co/api/v2/pokemon/' + name + '/')
@@ -28,13 +29,9 @@ angular.module('pokemon')
 					}
 				});
 
-				// elem.find('img').bind('load', function(){
-				// 	scope.spriteLoaded = true;
-				// 	console.log("picture loaded");
-				// });
-
-
-			// MAKE FACTORIES RETURN PROMISES. THEN DO PROMISE CHAINING TO HANDLE CALLS THAT RELY ON FACTORY RESULTS.
+				elem.find('img').on('load', function(){
+					scope.loaded();
+				});
 			}
 		};
 	}]);
