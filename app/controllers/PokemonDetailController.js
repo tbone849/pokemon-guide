@@ -24,6 +24,10 @@ angular.module('pokemon')
 					$scope.$apply(function(){
 						$scope.imagesLoaded = true;
 					});
+				}else if(evolutionCount === directiveImageLoadedCount && evolutionCount === 1){
+					$scope.$apply(function(){
+						$scope.hideEvolutionResponse = true;
+					});
 				}
 
 			};
