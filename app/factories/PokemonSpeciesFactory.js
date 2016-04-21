@@ -9,6 +9,7 @@ angular.module('pokemon')
 			}
 		};
 
+
 		return {
 			getSpecies: function(url){
 				return $http.get(url);
@@ -16,14 +17,18 @@ angular.module('pokemon')
 
 			parseSpecies: function(data){
 				var species = {
-					genderRate: data.gender_rate,
+					name: data.name,
+					genderRate: {
+						female: (data.gender_rate / 8).toFixed(1) * 100 + '%',
+						male: ((8 - data.gender_rate) / 8).toFixed(1) * 100 + '%'
+					},
 					captureRate: data.capture_rate,
 					growthRate: data.growth_rate.name,
 					color: data.color.name,
 					evolutionChainUrl: data.evolution_chain.url,
 					generation: data.generation.name,
-					habitat: parseHabitat(data.habitat),
-					genus: data.genera.genus,
+					habitat: parseHabitat(data.habitat) || 'unavailable',
+					genus: data.genera[0].genus,
 					varieties: data.varieties
 				};
 	

@@ -23,13 +23,12 @@ angular.module('pokemon')
 					if(err){
 						console.log(err);
 						// change this to a local fallback image
-						elem.find('img').attr('src', 'http://s3.amazonaws.com/coolchaser.com/thumb-15816917.jpg');
+						elem.find('img').attr('src', './assets/img/pokeball.png');
 						scope.hide();
 					}
 
 					if(res !== undefined){
 						scope.url = res;
-						console.log(res);
 					}
 				});
 

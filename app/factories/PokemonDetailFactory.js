@@ -48,8 +48,8 @@ angular.module('pokemon')
 					abilities: parseAbilities(traits.abilities),
 					species: traits.species,
 					sprites: {
-						male: traits.sprites.front_default,
-						female: traits.sprites.front_female
+						male: traits.sprites.front_default || './assets/img/pokeball.png',
+						female: traits.sprites.front_female || './assets/img/pokeball.png'
 					}
 				};
 				return pokemon;
