@@ -44,8 +44,6 @@ angular.module('pokemon')
 					genus: data.genera[0].genus,
 					varieties: data.varieties
 				};
-
-				console.log(data.gender_rate);
 	
 				return species;
 			}

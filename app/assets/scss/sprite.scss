@@ -31,3 +31,17 @@ sprite:hover {
 .sprite {
 	margin-right: 1em;
 }
+
+@media (max-width: 560px){
+	sprite {
+		max-width: 250px;
+	}
+
+	.orange {
+		margin-left: 1em;
+	}
+
+	.purple {
+		margin-left: 2em;
+	}
+}

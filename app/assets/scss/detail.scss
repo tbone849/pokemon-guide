@@ -1,8 +1,16 @@
 .details-container {
-	width: 70%;
-	margin: 0 auto;
 	padding: 0 2em 2em;
 	min-height: 500px;
+
+	@media (max-width: 425px){
+		padding: 0;
+	}
+}
+
+.detail-header {
+	@media (max-width: 425px){
+		padding-left: 1em;
+	}
 }
 
 .categories-container {
