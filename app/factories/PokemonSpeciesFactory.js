@@ -9,19 +9,32 @@ angular.module('pokemon')
 			}
 		};
 
+		var parseGender = function(data){
+			if(data === -1){
+				return {
+					male: null,
+					female: null,
+					genderless: 'Genderless'
+				};
+			} else {
+				return {
+					male: Math.floor(((8 - data.gender_rate) / 8) * 100) + '%',
+					female: Math.floor((data.gender_rate / 8) * 100) + '%',
+					genderless: false
+				};
+			}
+		};
+
 
 		return {
 			getSpecies: function(url){
-				return $http.get(url);
+				return $http.get(url, {cache:true});
 			},
 
 			parseSpecies: function(data){
 				var species = {
 					name: data.name,
-					genderRate: {
-						female: (data.gender_rate / 8).toFixed(1) * 100 + '%',
-						male: ((8 - data.gender_rate) / 8).toFixed(1) * 100 + '%'
-					},
+					genderRate: parseGender(data.gender_rate),
 					captureRate: data.capture_rate,
 					growthRate: data.growth_rate.name,
 					color: data.color.name,

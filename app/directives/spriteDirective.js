@@ -1,5 +1,5 @@
 angular.module('pokemon')
-	.directive('sprite', ['$http', function($http){
+	.directive('sprite', ['$http', '$location', function($http, $location){
 		return {
 			restrict: 'E',
 			scope: {
@@ -34,6 +34,13 @@ angular.module('pokemon')
 
 				elem.find('img').on('load', function(){
 					scope.loaded();
+				});
+
+				elem.bind('click', function(){
+					var url = '/pokemon/' + scope.name;
+					scope.$apply(function(){
+						$location.url(url);
+					});
 				});
 			}
 		};

@@ -19,6 +19,10 @@ sprite {
 	margin-bottom: 1em;
 }
 
+sprite:hover {
+	cursor: pointer;
+}
+
 .sprite-label {
 	font-family: 'joy';
 	font-size: 1.5em;

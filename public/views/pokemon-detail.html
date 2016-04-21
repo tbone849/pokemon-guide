@@ -6,14 +6,14 @@
 			<i class="fa fa-refresh fa-spin spinner"></i> Retrieving Pok&#233;mon...
 		</div>
 		<div class="pokemon-response" ng-if="pokemon">
-			<div class="main-sprites category">
+			<div class="category">
 				<div class="gender-container">
 					<h3 class="gender">Male</h3>
-					<img class="main-sprite" ng-src="{{pokemon.sprites.male}}">
+					<img class="gender-img" ng-src="{{pokemon.sprites.male}}">
 				</div>
 				<div class="gender-container">
 					<h3 class="gender">Female</h3>
-					<img class="main-sprite" ng-src="{{pokemon.sprites.female}}">
+					<img class="gender-img" ng-src="{{pokemon.sprites.female}}">
 				</div>
 			</div>
 			<div class="measurements category">
@@ -73,9 +73,14 @@
 				<span>{{species.captureRate}}</span>
 			</div>
 			<div class="category">
+				<h3>Growth Rate</h3>
+				<span>{{species.growthRate | titlecase}}</span>
+			</div>
+			<div class="category">
 				<h3>Gender Rate</h3>
-				<span class="gender" title="Male"><i class="fa fa-mars" aria-hidden="true"></i> {{species.genderRate.male}}</span>
-				<span class="gender" title="Female"><i class="fa fa-venus" aria-hidden="true"></i> {{species.genderRate.female}}</span>
+				<span class="gender" ng-hide="species.genderRate.genderless" title="Male"><i class="fa fa-mars" aria-hidden="true"></i> {{species.genderRate.male}}</span>
+				<span class="gender" ng-hide="species.genderRate.genderless" title="Female"><i class="fa fa-venus" aria-hidden="true"></i> {{species.genderRate.female}}</span>
+				<span class="gender" ng-hide="!species.genderRate.genderless">{{species.genderRate.genderless}}</span>
 			</div>
 			<div class="category">
 				<h3>Varieties</h3>

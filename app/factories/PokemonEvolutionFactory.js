@@ -3,7 +3,7 @@ angular.module('pokemon')
 
 		return {
 			getEvolutionChain: function(url){
-				return $http.get(url);
+				return $http.get(url, {cache:true});
 			}
 		};
 

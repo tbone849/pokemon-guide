@@ -11,7 +11,9 @@
 	margin-bottom: 2em;
 }
 
-.main-sprite {
+.gender-img {
+	width: 95px;
+	height: 95px;
 	-webkit-border-radius: 50%;
 	background-color: white;
 	border-radius: 50%;
@@ -45,7 +47,7 @@
 }
 
 .stats {
-	max-width: 350px;
+	max-width: 400px;
 }
 
 .gender {
