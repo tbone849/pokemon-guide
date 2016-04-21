@@ -18,8 +18,8 @@ angular.module('pokemon')
 				};
 			} else {
 				return {
-					male: Math.floor(((8 - data.gender_rate) / 8) * 100) + '%',
-					female: Math.floor((data.gender_rate / 8) * 100) + '%',
+					male: Math.floor(((8 - data) / 8) * 100) + '%',
+					female: Math.floor((data / 8) * 100) + '%',
 					genderless: false
 				};
 			}
@@ -44,6 +44,8 @@ angular.module('pokemon')
 					genus: data.genera[0].genus,
 					varieties: data.varieties
 				};
+
+				console.log(data.gender_rate);
 	
 				return species;
 			}
