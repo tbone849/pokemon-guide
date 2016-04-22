@@ -9,8 +9,35 @@ angular.module('pokemon')
 			},
 			template: '<img class="sprite" ng-src="{{url}}" width="96" height="96"><span class="sprite-label">{{name | titlecase}}</span>',
 			link: function(scope, elem, attr){
+				// bug fix: use default variety name to get sprite and for linking
+				var checkName = function (name){
+					switch(name){
+						case 'pumpkaboo':
+							name = 'pumpkaboo-average';
+							return name;
+						case 'gourgeist':
+							name = 'gourgeist-average';
+							return name;
+						case 'wormadam':
+							name = 'wormadam-plant';
+							return name;
+						case 'aegislash':
+							name = 'aegislash-shield';
+							return name;
+						case 'darmanitan':
+							name = 'darmanitan-standard';
+							return name;
+						case 'meowstic':
+							name = 'meowstic-male';
+							return name;
+						default: 
+							return name;
+					}
+				};
+
 				var getSprite = function(name, callback){
-					$http.get('//pokeapi.co/api/v2/pokemon/' + name + '/')
+					
+					$http.get('//pokeapi.co/api/v2/pokemon/' + checkName(name) + '/', {cache:true})
 					.then(function(res){
 						var url = 'http://pokeapi.co/media/sprites/pokemon/' + res.data.id + '.png';
 						callback(null, url);
@@ -22,7 +49,6 @@ angular.module('pokemon')
 				getSprite(scope.name, function(err, res){
 					if(err){
 						console.log(err);
-						// change this to a local fallback image
 						elem.find('img').attr('src', './assets/img/pokeball.png');
 						scope.hide();
 					}
@@ -37,7 +63,7 @@ angular.module('pokemon')
 				});
 
 				elem.bind('click', function(){
-					var url = '/pokemon/' + scope.name;
+					var url = '/pokemon/' + checkName(scope.name);
 					scope.$apply(function(){
 						$location.url(url);
 					});

@@ -49,7 +49,6 @@ angular.module('pokemon')
 				// get species information
 				.then(function(res){
 					$scope.species = PokemonSpeciesFactory.parseSpecies(res.data);
-					console.log($scope.species);
 					return PokemonEvolutionFactory.getEvolutionChain($scope.species.evolutionChainUrl);
 				}, function(err){
 					console.log('Species failed');

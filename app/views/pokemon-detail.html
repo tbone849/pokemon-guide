@@ -90,7 +90,7 @@
 	</div>
 	<div class='evolution-container categories-container'>
 		<h2>Evolution Chain</h2>
-		<div ng-show='hideEvolutionResponse'>There is no evolution for this Pok&#233;mon.</div>
+		<div ng-show='hideEvolutionResponse && !imagesLoaded'>There is no evolution for this Pok&#233;mon.</div>
 		<div class='loading' ng-hide='imagesLoaded || hideEvolutionResponse'>
 			<i class="fa fa-refresh fa-spin spinner"></i> Retrieving Evolution...
 		</div>

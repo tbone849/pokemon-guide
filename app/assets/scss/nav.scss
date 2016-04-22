@@ -1,0 +1,16 @@
+nav {
+	width: 70%;
+	margin: 2em auto;
+
+	@media (max-width: 768px){
+		width: 100%;
+	}
+
+}
+
+.nav-button {
+	width: 150px;
+	margin-right: 1em;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
