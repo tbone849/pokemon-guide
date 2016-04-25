@@ -2,11 +2,12 @@ angular.module('pokemon', ['ngAnimate', 'angular-velocity', 'ngRoute', 'ngLodash
 	.config(['$routeProvider', '$sceDelegateProvider', function($routeProvider, $sceDelegateProvider){
 		$routeProvider.
 			when('/', {
-				templateUrl: 'views/home.html'
+				templateUrl: 'views/home.html',
+				controller: 'HomeController'
 			}).
 			when('/pokemon', {
 				templateUrl: 'views/browse.html',
-				controller: 'BrowseCtrl'
+				controller: 'BrowseController'
 			}).
 			when('/search', {
 				templateUrl: 'views/search.html',

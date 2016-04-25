@@ -26,7 +26,7 @@
     <script src="assets/libs/ng-lodash.min.js"></script>
     <script src="app.js"></script>
   </head>
-  <body>
+  <body ng-controller='HomeController'>
     <header>
       <div class='logo-container'>
         <span class='title'>Pok&#233;mon</span>
@@ -34,9 +34,9 @@
         <div class='subtitle'>A visual guide</div>
       </div>
     </header>
-    <nav>
-      <a href='#/pokemon'><img class='nav-button' src='./assets/img/browse-button.jpg' alt='Browse'></a>
-      <a href='#/search'><img class='nav-button' src='./assets/img/search-button.jpg' alt='Search'></a>
+    <nav ng-hide='home'>
+      <a href='#/pokemon?page=1'><img class='nav-button' src='./assets/img/browse-button.png' alt='Browse'></a>
+      <a href='#/search'><img class='nav-button' src='./assets/img/search-button.png' alt='Search'></a>
     </nav>
     <section class='view-container'>
       <div ng-view>

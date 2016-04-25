@@ -1,0 +1,18 @@
+.browse-container {
+	padding: 0 2em 2em;
+	min-height: 500px;
+}
+
+.pokemon-name {
+	font-family: 'joy';
+	text-align: center;
+}
+
+.pokemon-container {
+	display: inline-block !important;
+	margin-right: 2em;
+	margin-bottom: 2em;
+	&:hover{
+		cursor: pointer;
+	}
+}
