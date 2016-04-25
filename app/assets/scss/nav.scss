@@ -9,8 +9,8 @@ nav {
 }
 
 .nav-button {
-	width: 150px;
 	margin-right: 1em;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
+	&:hover {
+		cursor: pointer;
+	}
 }
