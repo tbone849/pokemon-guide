@@ -7,7 +7,7 @@ angular.module('pokemon')
 				spriteUrl: '='
 			},
 			transclude: true, 
-			template: '<div class="pokemon-container"><img class="pokemon-image" ng-src="{{spriteUrl}}" width="96" height="96"><div class="pokemon-name">{{name | titlecase}}</div></div>',
+			templateUrl: 'views/pokemon.html',
 			link: function(scope, elem, attr){
 				elem.bind('click', function(){
 					var url ='/pokemon/' + scope.name;

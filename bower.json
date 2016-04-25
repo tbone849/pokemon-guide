@@ -19,5 +19,8 @@
   "dependencies": {
     "bootstrap-sass": "^3.3.6",
     "angular-velocity": "^0.3.2"
+  },
+  "devDependencies": {
+    "angular": "^1.5.5"
   }
 }

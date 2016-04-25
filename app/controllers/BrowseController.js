@@ -1,36 +1,35 @@
 angular.module('pokemon')
-	.controller('BrowseController', ['$scope', '$http', '$routeParams', 'BrowseFactory', function($scope, $http, $routeParams, BrowseFactory){
+	.controller('BrowseController', ['$scope', '$http', '$routeParams', 'lodash', function($scope, $http, $routeParams, lodash){
 
-		var page = $routeParams.page;
+		$scope.currentPage = parseInt($routeParams.page);
 		var offset = '';
-		if(page === '1'){
-			console.log('page is 1');
+		if($scope.currentPage === 1){
 			offset = 0;
 		} else {
-			offset = (page - 1) * 30;
+			offset = ($scope.currentPage - 1) * 30;
 		}
 
+		var formSpriteUrl = function(url){
+			var urlChunks = url.split('/');
+			var id = urlChunks[6];
+			return 'http://pokeapi.co/media/sprites/pokemon/' + id + '.png';
+		};
 
 		var parsePokemon = function(results){
 			var pokemon = results.map(function(result){
 				return {
-					name: result.data.name,
-					sprite: result.data.sprites.front_default
+					name: result.name,
+					sprite: formSpriteUrl(result.url)
 				};
 			});
-
 			return pokemon;
 		};
+
 		var getPokemonByPage = function(offset){
 			$http.get('http://pokeapi.co/api/v2/pokemon/?limit=30' + '&offset=' + offset)
 				.then(function(res){
-					BrowseFactory.getPokemon(res.data.results)
-						.then(function(res){
-							$scope.pokemon = parsePokemon(res);
-							console.log('success');
-						}, function(err){
-							console.log('Individual retrieval failed.');
-						});
+					$scope.pages = lodash.range(1, Math.ceil(res.data.count/30) + 1);
+					$scope.pokemon = parsePokemon(res.data.results);
 				}, function(err){
 					console.log('Group retrieval failed.');
 				});

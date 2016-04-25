@@ -3,6 +3,10 @@
 	min-height: 500px;
 }
 
+.browse-results-container {
+	text-align: center;
+}
+
 .pokemon-name {
 	font-family: 'joy';
 	text-align: center;
@@ -15,4 +19,8 @@
 	&:hover{
 		cursor: pointer;
 	}
+}
+
+paginate {
+	text-align: center;
 }
