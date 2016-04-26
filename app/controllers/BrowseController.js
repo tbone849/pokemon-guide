@@ -12,7 +12,7 @@ angular.module('pokemon')
 		var formSpriteUrl = function(url){
 			var urlChunks = url.split('/');
 			var id = urlChunks[6];
-			return 'http://pokeapi.co/media/sprites/pokemon/' + id + '.png';
+			return '//pokeapi.co/media/sprites/pokemon/' + id + '.png';
 		};
 
 		var parsePokemon = function(results){
@@ -26,7 +26,7 @@ angular.module('pokemon')
 		};
 
 		var getPokemonByPage = function(offset){
-			$http.get('http://pokeapi.co/api/v2/pokemon/?limit=30' + '&offset=' + offset)
+			$http.get('//pokeapi.co/api/v2/pokemon/?limit=30' + '&offset=' + offset)
 				.then(function(res){
 					$scope.pages = lodash.range(1, Math.ceil(res.data.count/30) + 1);
 					$scope.pokemon = parsePokemon(res.data.results);

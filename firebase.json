@@ -1,0 +1,9 @@
+{
+  "firebase": "pokemon-visualguide",
+  "public": "public",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}

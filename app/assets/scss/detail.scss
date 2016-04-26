@@ -38,8 +38,19 @@
 
 .bar span {
 	display: block;
-	height: 10px;
-	background-color: red;
+	height: 1em;
+}
+
+.bar-average {
+	background-color: #00ace6;
+}
+
+.bar-better {
+	background-color: #e6ac00;
+}
+
+.bar-best {
+	background-color: #ff6666;
 }
 
 .category {
@@ -66,3 +77,4 @@
 	display: block; 
 	margin-right: 1em;
 }
+

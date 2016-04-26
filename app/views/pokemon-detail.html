@@ -39,7 +39,16 @@
 					<tr ng-repeat='stat in pokemon.stats'>
 						<td>{{stat.stat.name | titlecase}}</td>
 						<td>{{stat.base_stat}}</td>
-						<td class='bar'><span ng-style='{"width": stat.base_stat}'></span></td>
+						<td class='bar'>
+							<span 
+								ng-style='{"width": stat.base_stat}'
+								ng-class='{
+									"bar-average": stat.base_stat <= 60,
+									"bar-better": stat.base_stat > 60,
+									"bar-best": stat.base_stat > 99
+								}'
+								></span>
+						</td>
 					</tr>
 				</table>
 			</div>
