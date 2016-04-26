@@ -41,17 +41,38 @@
 	height: 1em;
 }
 
-.bar-average {
+.bar-20 {
+	background-color: #7300e6;
+}
+
+.bar-40 {
+	background-color: #0000e6;
+}
+
+.bar-60 {
 	background-color: #00ace6;
 }
 
-.bar-better {
+.bar-80 {
+	background-color: #00e639;
+}
+
+.bar-100 {
+	background-color: #e6e600;
+}
+
+.bar-120 {
 	background-color: #e6ac00;
 }
 
-.bar-best {
-	background-color: #ff6666;
+.bar-140 {
+	background-color: #e67300;
 }
+
+.bar-160 {
+	background-color: #e60000;
+}
+
 
 .category {
 	display: inline-block;

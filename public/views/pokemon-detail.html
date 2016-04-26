@@ -41,9 +41,14 @@
 						<td>{{stat.base_stat}}</td>
 						<td class="bar">
 							<span ng-style='{"width": stat.base_stat}' ng-class='{
-									"bar-average": stat.base_stat <= 60,
-									"bar-better": stat.base_stat > 60,
-									"bar-best": stat.base_stat > 99
+									"bar-20": stat.base_stat <= 20,
+									"bar-40": stat.base_stat > 20,
+									"bar-60": stat.base_stat > 40,
+									"bar-80": stat.base_stat > 60,
+									"bar-100": stat.base_stat > 80,
+									"bar-120": stat.base_stat > 100,
+									"bar-140": stat.base_stat > 120,
+									"bar-160": stat.base_stat > 140
 								}'></span>
 						</td>
 					</tr>
