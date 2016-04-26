@@ -15,6 +15,18 @@
 	vertical-align: top;
 }
 
+.info {
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+	position: absolute;
+	top: 1em;
+	left: 1em;
+
+	&:focus {
+		outline: 0;
+	}
+}
+
 #browse {
 	background-image: url('../img/browse.jpg');
 	margin-right: 3em;

@@ -27,6 +27,40 @@
     <script src="app.js"></script>
   </head>
   <body ng-controller='HomeController'>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-default info" data-toggle="modal" data-target="#myModal">
+      ?
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">What is this?</h4>
+          </div>
+          <div class="modal-body">
+            If you are like me, you are terrible with names but remember faces. This project was created with that idea in mind. There are two ways to go about finding the pok&#233;mon you seek. Clicking the 'browse' button will take you to a paginated listing of pok&#233;mon that includes a picture with their name. Pretty handy! However, if you know the name you are searching for, clicking 'search' might suit you better. On the search page, all of the pok&#233;mon names in the database are listed. You can enter a search term to filter down to your desired pok&#233;mon.
+          </div>
+          <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">What kind of information can I find?</h4>
+          </div>
+          <div class="modal-body">
+            This guide is meant to be sort of a quick reference of basic information about each pok&#233;mon. When you click on any given pok&#233;mon, you will find basic stats, species information, and evolution chain (if any). Sure there are more comprehensive guides out there, but if you just need to find something quick, this should be your first stop. This project utilizes the <a href='http://pokeapi.co/'>Pok&#233;api</a> and all data and images come from their database.  
+          </div>
+          <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">Notice a bug or have improvment ideas?</h4>
+          </div>
+          <div class="modal-body">
+            Please, please, please. If you notice something is funky with the website, let me know by opening an issue here. When reporting an issue, please tell me how to replicate the bug and describe what I am looking for. Alternatively, you can email me at timsarvey@gmail.com. The same goes for site improvements and/or ideas. If you enjoy this guide, you can check out my <a href='https://starwars-visualguide.com'>Star Wars Visual Guide</a> as well. Thanks!  
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <header>
       <div class='logo-container'>
         <span class='title'>Pok&#233;mon</span>

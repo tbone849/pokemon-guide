@@ -30,7 +30,10 @@ angular.module('pokemon')
 				.then(function(res){
 					$scope.pages = lodash.range(1, Math.ceil(res.data.count/30) + 1);
 					$scope.pokemon = parsePokemon(res.data.results);
+					$scope.loaded = true;
 				}, function(err){
+					$scope.error = true;
+					$scope.loaded = true;
 					console.log('Group retrieval failed.');
 				});
 		};

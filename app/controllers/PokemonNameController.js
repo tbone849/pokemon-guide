@@ -4,6 +4,8 @@ angular.module('pokemon')
 			$scope.loaded = false;
 			PokemonNameFactory.getAllNames(function(err, names){
 				if(err){
+					$scope.error = true;
+					$scope.loaded = true;
 					return console.log(err);
 				}
 

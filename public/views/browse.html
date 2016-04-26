@@ -1,5 +1,11 @@
 <div class="browse-container panel panel-default">
 	<h1>Browse By Image</h1>
+	<div class="loading" ng-hide="loaded">
+		<i class="fa fa-refresh fa-spin spinner"></i> Catching Pok&#233;mon...
+	</div>
+	<div class="error" ng-show="error">
+		Welp. Those pok&#233;mon are tricky to catch. We seem to have run into an error. Please try again later.
+	</div>
 	<div class="browse-results-container" ng-if="pokemon">
 		<pokemon ng-repeat="poke in pokemon" name="poke.name" sprite-url="poke.sprite"></pokemon>
 	</div>

@@ -2,8 +2,11 @@
 	<h1 class="detail-header">{{name | titlecase}}</h1>
 	<div class="basic-info-container categories-container">
 		<h2>Basic Information</h2>
-		<div class="loading" ng-hide="pokemon">
+		<div class="loading" ng-hide="pokemon || detailsError">
 			<i class="fa fa-refresh fa-spin spinner"></i> Retrieving Pok&#233;mon...
+		</div>
+		<div class="error" ng-show="detailsError">
+			Welp. Those pok&#233;mon are tricky to catch. We seem to have run into an error. Please try again later.
 		</div>
 		<div class="pokemon-response" ng-if="pokemon">
 			<div class="category">
@@ -44,8 +47,11 @@
 	</div>
 	<div class="species-container categories-container">
 		<h2>Species Information</h2>
-		<div class="loading" ng-hide="species">
+		<div class="loading" ng-hide="species || speciesError || detailsError">
 			<i class="fa fa-refresh fa-spin spinner"></i> Retrieving Species...
+		</div>
+		<div class="error" ng-show="speciesError">
+			Hmm. An error occured when trying to find out more information about this pok&#233;mon. Please try again later.
 		</div>
 		<div class="species-response" ng-if="species">
 			<div class="category">
@@ -90,9 +96,12 @@
 	</div>
 	<div class="evolution-container categories-container">
 		<h2>Evolution Chain</h2>
-		<div ng-show="hideEvolutionResponse && !imagesLoaded">There is no evolution for this Pok&#233;mon.</div>
-		<div class="loading" ng-hide="imagesLoaded || hideEvolutionResponse">
+		<div ng-show="hideEvolutionResponse && !imagesLoaded && !evoError">There is no evolution for this Pok&#233;mon.</div>
+		<div class="loading" ng-hide="imagesLoaded || hideEvolutionResponse || evoError || speciesError || detailsError">
 			<i class="fa fa-refresh fa-spin spinner"></i> Retrieving Evolution...
+		</div>
+		<div class="error" ng-show="evoError">
+			Welp. An error occured when trying to find this pok&#233;mon's evolution chain. Please try again later.
 		</div>
 		<div ng-if="evolution" ng-show="imagesLoaded" class="evolution-origin">
 			<sprite loaded="areImagesLoaded()" hide="hideEvolution()" class="yellow" name="evolution.chain.species.name"></sprite>

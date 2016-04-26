@@ -43,6 +43,7 @@ angular.module('pokemon')
 					$scope.pokemon = PokemonDetailFactory.parsePersonalTraits(res.data);
 					return PokemonSpeciesFactory.getSpecies($scope.pokemon.species.url);
 				}, function(err){
+					$scope.detailsError = true;
 					console.log('Details failed');
 					console.log(err);
 				})
@@ -51,6 +52,7 @@ angular.module('pokemon')
 					$scope.species = PokemonSpeciesFactory.parseSpecies(res.data);
 					return PokemonEvolutionFactory.getEvolutionChain($scope.species.evolutionChainUrl);
 				}, function(err){
+					$scope.speciesError = true;
 					console.log('Species failed');
 					console.log(err);
 				})
@@ -60,6 +62,7 @@ angular.module('pokemon')
 					evolutionCount = getEvolutionCount($scope.evolution);
 
 				}, function(err){
+					$scope.evoError = true;
 					console.log('Evolution failed');
 					console.log(err);
 				});
