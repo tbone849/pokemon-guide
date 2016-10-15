@@ -39,7 +39,7 @@ angular.module('pokemon')
 					
 					$http.get('//pokeapi.co/api/v2/pokemon/' + checkName(name) + '/', {cache:true})
 					.then(function(res){
-						var url = 'http://pokeapi.co/media/sprites/pokemon/' + res.data.id + '.png';
+						var url = 'assets/img/pokemon-sprites/sprites/pokemon/' + res.data.id + '.png';
 						callback(null, url);
 					}, function(err){
 						callback(err);

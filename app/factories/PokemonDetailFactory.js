@@ -27,6 +27,16 @@ angular.module('pokemon')
 			return lbs + ' lbs';
 		};
 
+		var parseSprite = function(id, gender, spriteExists){
+			if(gender === 'male' && spriteExists){
+				return 'assets/img/pokemon-sprites/sprites/pokemon/' + id + '.png';
+			} else if (gender ==='female' && spriteExists){
+				return 'assets/img/pokemon-sprites/sprites/pokemon/female/' + id + '.png';
+			} else {
+				return 'assets/img/pokeball.png';
+			}
+		};
+
 
 		return {
 			getDetails: function(name){
@@ -48,8 +58,8 @@ angular.module('pokemon')
 					abilities: parseAbilities(traits.abilities),
 					species: traits.species,
 					sprites: {
-						male: traits.sprites.front_default || './assets/img/pokeball.png',
-						female: traits.sprites.front_female || './assets/img/pokeball.png'
+						male: parseSprite(traits.id, 'male', traits.sprites.front_default),
+						female: parseSprite(traits.id, 'female', traits.sprites.front_female)
 					}
 				};
 				return pokemon;

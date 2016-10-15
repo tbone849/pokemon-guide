@@ -12,7 +12,7 @@ angular.module('pokemon')
 		var formSpriteUrl = function(url){
 			var urlChunks = url.split('/');
 			var id = urlChunks[6];
-			return '//pokeapi.co/media/sprites/pokemon/' + id + '.png';
+			return 'assets/img/pokemon-sprites/sprites/pokemon/' + id + '.png';
 		};
 
 		var parsePokemon = function(results){
